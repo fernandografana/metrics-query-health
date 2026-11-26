@@ -2,20 +2,20 @@
   "apiVersion": "dashboard.grafana.app/v2",
   "kind": "Dashboard",
   "metadata": {
-    "name": "feltmrd",
-    "namespace": "stacks-275006",
-    "uid": "465ff442-83da-4299-b3e8-ad4430423876",
-    "resourceVersion": "2125691168882245632",
-    "generation": 6,
-    "creationTimestamp": "2026-11-18T18:43:04Z",
+    "name": "feltmrdrao",
+    "namespace": "stacks-1625723",
+    "uid": "30ff6d3a-3278-48a4-9002-ae03daa05d10",
+    "resourceVersion": "2125948955565518848",
+    "generation": 2,
+    "creationTimestamp": "2026-11-26T13:39:42Z",
     "labels": {
-      "grafana.app/deprecatedInternalID": "1929426108600320"
+      "grafana.app/deprecatedInternalID": "248584331288576"
     },
     "annotations": {
-      "grafana.app/createdBy": "user:ff6hrxuwlff9cf",
+      "grafana.app/createdBy": "user:efqp8lb3eurcwd",
       "grafana.app/saved-from-ui": "Grafana Cloud",
-      "grafana.app/updatedBy": "user:ff6hrxuwlff9cf",
-      "grafana.app/updatedTimestamp": "2026-11-25T20:40:42Z"
+      "grafana.app/updatedBy": "user:efqp8lb3eurcwd",
+      "grafana.app/updatedTimestamp": "2026-11-26T13:45:03Z"
     }
   },
   "spec": {
@@ -657,7 +657,7 @@
                       "spec": {
                         "direction": "backward",
                         "editorMode": "code",
-                        "expr": "topk(50, sum by (caller, source, dashboard_id, panel_id) (sum_over_time({instance_type=\"metrics\"} |= \"request timings\" | logfmt | samples_read != \"\" | rule_folder=~\"$rule_folder\" | label_format caller=`{{if .rule_name}}{{.rule_name}}{{else if .dashboard_title}}{{.dashboard_title}} / {{.panel_title}}{{else}}{{.user_agent}} ({{.grafana_username}}){{end}}` | unwrap samples_read | __error__=\"\" [$__range])))",
+                        "expr": "topk(50, sum by (caller, source, dashboard_id, panel_id) (sum_over_time({instance_type=\"metrics\"} |= \"request timings\" | logfmt | samples_read != \"\" | label_format caller=`{{if .rule_name}}{{.rule_name}}{{else if .dashboard_title}}{{.dashboard_title}} / {{.panel_title}}{{else}}{{.user_agent}} ({{.grafana_username}}){{end}}` | unwrap samples_read | __error__=\"\" [$__range])))",
                         "queryType": "instant"
                       }
                     },
@@ -677,7 +677,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "(sum by (caller, source, dashboard_id, panel_id) (sum_over_time({instance_type=\"metrics\"} |= \"request timings\" | logfmt | samples_read != \"\" | rule_folder=~\"$rule_folder\" | label_format caller=`{{if .rule_name}}{{.rule_name}}{{else if .dashboard_title}}{{.dashboard_title}} / {{.panel_title}}{{else}}{{.user_agent}} ({{.grafana_username}}){{end}}` | unwrap samples_read | __error__=\"\" [$__range])) / sum by (caller, source, dashboard_id, panel_id) (count_over_time({instance_type=\"metrics\"} |= \"request timings\" | logfmt | samples_read != \"\" | rule_folder=~\"$rule_folder\" | label_format caller=`{{if .rule_name}}{{.rule_name}}{{else if .dashboard_title}}{{.dashboard_title}} / {{.panel_title}}{{else}}{{.user_agent}} ({{.grafana_username}}){{end}}` [$__range]))) and on (caller, source, dashboard_id, panel_id) topk(50, sum by (caller, source, dashboard_id, panel_id) (sum_over_time({instance_type=\"metrics\"} |= \"request timings\" | logfmt | samples_read != \"\" | rule_folder=~\"$rule_folder\" | label_format caller=`{{if .rule_name}}{{.rule_name}}{{else if .dashboard_title}}{{.dashboard_title}} / {{.panel_title}}{{else}}{{.user_agent}} ({{.grafana_username}}){{end}}` | unwrap samples_read | __error__=\"\" [$__range])))",
+                        "expr": "(sum by (caller, source, dashboard_id, panel_id) (sum_over_time({instance_type=\"metrics\"} |= \"request timings\" | logfmt | samples_read != \"\" | label_format caller=`{{if .rule_name}}{{.rule_name}}{{else if .dashboard_title}}{{.dashboard_title}} / {{.panel_title}}{{else}}{{.user_agent}} ({{.grafana_username}}){{end}}` | unwrap samples_read | __error__=\"\" [$__range])) / sum by (caller, source, dashboard_id, panel_id) (count_over_time({instance_type=\"metrics\"} |= \"request timings\" | logfmt | samples_read != \"\" | label_format caller=`{{if .rule_name}}{{.rule_name}}{{else if .dashboard_title}}{{.dashboard_title}} / {{.panel_title}}{{else}}{{.user_agent}} ({{.grafana_username}}){{end}}` [$__range]))) and on (caller, source, dashboard_id, panel_id) topk(50, sum by (caller, source, dashboard_id, panel_id) (sum_over_time({instance_type=\"metrics\"} |= \"request timings\" | logfmt | samples_read != \"\" | label_format caller=`{{if .rule_name}}{{.rule_name}}{{else if .dashboard_title}}{{.dashboard_title}} / {{.panel_title}}{{else}}{{.user_agent}} ({{.grafana_username}}){{end}}` | unwrap samples_read | __error__=\"\" [$__range])))",
                         "queryType": "instant"
                       }
                     },
@@ -697,7 +697,7 @@
                       },
                       "spec": {
                         "editorMode": "code",
-                        "expr": "sum by (caller, source, dashboard_id, panel_id) (sum_over_time({instance_type=\"metrics\"} |= \"request timings\" | logfmt | samples_read != \"\" | rule_folder=~\"$rule_folder\" | label_format caller=`{{if .rule_name}}{{.rule_name}}{{else if .dashboard_title}}{{.dashboard_title}} / {{.panel_title}}{{else}}{{.user_agent}} ({{.grafana_username}}){{end}}` | unwrap duration_seconds(total) | __error__=\"\" [$__range])) and on (caller, source, dashboard_id, panel_id) topk(50, sum by (caller, source, dashboard_id, panel_id) (sum_over_time({instance_type=\"metrics\"} |= \"request timings\" | logfmt | samples_read != \"\" | rule_folder=~\"$rule_folder\" | label_format caller=`{{if .rule_name}}{{.rule_name}}{{else if .dashboard_title}}{{.dashboard_title}} / {{.panel_title}}{{else}}{{.user_agent}} ({{.grafana_username}}){{end}}` | unwrap samples_read | __error__=\"\" [$__range])))",
+                        "expr": "sum by (caller, source, dashboard_id, panel_id) (sum_over_time({instance_type=\"metrics\"} |= \"request timings\" | logfmt | samples_read != \"\" | label_format caller=`{{if .rule_name}}{{.rule_name}}{{else if .dashboard_title}}{{.dashboard_title}} / {{.panel_title}}{{else}}{{.user_agent}} ({{.grafana_username}}){{end}}` | unwrap duration_seconds(total) | __error__=\"\" [$__range])) and on (caller, source, dashboard_id, panel_id) topk(50, sum by (caller, source, dashboard_id, panel_id) (sum_over_time({instance_type=\"metrics\"} |= \"request timings\" | logfmt | samples_read != \"\" | label_format caller=`{{if .rule_name}}{{.rule_name}}{{else if .dashboard_title}}{{.dashboard_title}} / {{.panel_title}}{{else}}{{.user_agent}} ({{.grafana_username}}){{end}}` | unwrap samples_read | __error__=\"\" [$__range])))",
                         "queryType": "instant"
                       }
                     },
@@ -1143,23 +1143,8 @@
       "hideTimepicker": false,
       "fiscalYearStartMonth": 0
     },
-    "title": "Metrics Query Health",
-    "variables": [
-      {
-        "kind": "TextVariable",
-        "spec": {
-          "name": "rule_folder",
-          "current": {
-            "text": ".*",
-            "value": ".*"
-          },
-          "query": ".*",
-          "label": "Rule folder (regex)",
-          "hide": "dontHide",
-          "skipUrlSync": false
-        }
-      }
-    ],
+    "title": "Metrics Query Healthv2",
+    "variables": [],
     "preferences": {
       "layout": {
         "kind": "AutoGridLayout",
